@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="248" id="KGk-i7-Jjw" customClass="VideoFeedTableViewCell" customModule="InnovationAdvocates" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="248"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="412" height="247.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ut4-tq-fsp">
+                        <rect key="frame" x="0.0" y="0.0" width="412" height="247.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="events" translatesAutoresizingMaskIntoConstraints="NO" id="6vl-L4-abv">
+                                <rect key="frame" x="0.0" y="0.0" width="412" height="250"/>
+                                <color key="backgroundColor" name="Blue"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="bpw-4b-0yz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Innovation Morning - LDN" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cR-wf-BZw">
+                                <rect key="frame" x="8" y="203.5" width="396" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6vl-L4-abv" firstAttribute="top" secondItem="ut4-tq-fsp" secondAttribute="top" id="AYp-5v-b7g"/>
+                            <constraint firstItem="4cR-wf-BZw" firstAttribute="leading" secondItem="ut4-tq-fsp" secondAttribute="leading" constant="8" id="Xvu-fu-bup"/>
+                            <constraint firstAttribute="bottom" secondItem="4cR-wf-BZw" secondAttribute="bottom" constant="8" id="YDB-sq-BUJ"/>
+                            <constraint firstAttribute="trailing" secondItem="4cR-wf-BZw" secondAttribute="trailing" constant="8" id="kij-ut-K7z"/>
+                            <constraint firstItem="6vl-L4-abv" firstAttribute="leading" secondItem="ut4-tq-fsp" secondAttribute="leading" id="meK-KL-J7N"/>
+                            <constraint firstAttribute="bottom" secondItem="6vl-L4-abv" secondAttribute="bottom" constant="-2.5" id="qEa-HA-BoQ"/>
+                            <constraint firstAttribute="trailing" secondItem="6vl-L4-abv" secondAttribute="trailing" id="vt8-wu-6QO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ut4-tq-fsp" secondAttribute="bottom" id="2Gj-SQ-XNN"/>
+                    <constraint firstItem="ut4-tq-fsp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3KG-Yw-NQv"/>
+                    <constraint firstItem="ut4-tq-fsp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="77S-rl-pm6"/>
+                    <constraint firstAttribute="trailing" secondItem="ut4-tq-fsp" secondAttribute="trailing" id="LAd-Bt-WrH"/>
+                    <constraint firstAttribute="trailing" secondItem="ut4-tq-fsp" secondAttribute="trailing" id="WTx-kv-Rsk"/>
+                    <constraint firstItem="ut4-tq-fsp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="blr-dh-xot"/>
+                    <constraint firstItem="ut4-tq-fsp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="clT-1N-XcG"/>
+                    <constraint firstAttribute="bottom" secondItem="ut4-tq-fsp" secondAttribute="bottom" id="gIJ-2W-rjX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="thumbnailImageView" destination="6vl-L4-abv" id="ACA-pV-rh7"/>
+                <outlet property="videoTitleLabel" destination="4cR-wf-BZw" id="DIQ-5l-N8B"/>
+            </connections>
+            <point key="canvasLocation" x="80" y="25"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="events" width="1000" height="666"/>
+        <namedColor name="Blue">
+            <color red="0.14900000393390656" green="0.18799999356269836" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
