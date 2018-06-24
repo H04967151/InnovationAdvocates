@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5wD-cx-aFq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Presentations-->
+        <scene sceneID="ACZ-F0-JTw">
+            <objects>
+                <tableViewController id="cfI-md-UFI" customClass="PresentationController" customModule="InnovationAdvocates" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Ie-PK-KW4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="549.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PresentationCell" id="lAc-am-v6v">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lAc-am-v6v" id="yfR-qw-iDU">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cfI-md-UFI" id="n0E-rE-dqF"/>
+                            <outlet property="delegate" destination="cfI-md-UFI" id="tKd-6g-STn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Presentations" id="ZVX-zF-6ve"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eZV-TJ-9ju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="1046"/>
+        </scene>
+        <!--Presentation Detail View Controller-->
+        <scene sceneID="aRw-XL-eeX">
+            <objects>
+                <viewController storyboardIdentifier="webView" id="9Fg-Qq-arG" customClass="PresentationDetailViewController" customModule="InnovationAdvocates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g9C-9T-JIx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5s-9t-Qdf">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3x-Ya-eQx">
+                                <rect key="frame" x="16" y="36" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="VqC-NL-7kC"/>
+                                    <constraint firstAttribute="width" constant="32" id="poO-hc-CWU"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="dismissViewButton:" destination="9Fg-Qq-arG" eventType="touchUpInside" id="PCO-xJ-jKE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="v3x-Ya-eQx" firstAttribute="leading" secondItem="0Rl-M3-2pw" secondAttribute="leading" constant="16" id="77a-cf-RxY"/>
+                            <constraint firstItem="F5s-9t-Qdf" firstAttribute="leading" secondItem="0Rl-M3-2pw" secondAttribute="leading" id="Dgw-v8-Xkm"/>
+                            <constraint firstItem="v3x-Ya-eQx" firstAttribute="top" secondItem="0Rl-M3-2pw" secondAttribute="top" constant="16" id="Erh-Wn-51S"/>
+                            <constraint firstItem="0Rl-M3-2pw" firstAttribute="bottom" secondItem="F5s-9t-Qdf" secondAttribute="bottom" id="QFe-o5-2OA"/>
+                            <constraint firstItem="0Rl-M3-2pw" firstAttribute="trailing" secondItem="F5s-9t-Qdf" secondAttribute="trailing" id="YFu-iA-hnR"/>
+                            <constraint firstItem="F5s-9t-Qdf" firstAttribute="top" secondItem="0Rl-M3-2pw" secondAttribute="top" id="qNt-n9-Cml"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Rl-M3-2pw"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButtonView" destination="v3x-Ya-eQx" id="sfk-ox-h0V"/>
+                        <outlet property="webView" destination="F5s-9t-Qdf" id="5XR-KL-f9b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z1G-zV-I2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2586" y="1040"/>
+        </scene>
+        <!--Presentations-->
+        <scene sceneID="wNo-Nq-vLh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5wD-cx-aFq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Presentations" image="presentation-7" selectedImage="presentation-7" id="eTn-FL-a9J"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="Gge-QC-4Nz">
+                        <rect key="frame" x="0.0" y="20" width="375" height="97.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Blue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="40"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cfI-md-UFI" kind="relationship" relationship="rootViewController" id="8a4-uR-Ruu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F9f-H2-yBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="1046"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close" width="32" height="32"/>
+        <image name="presentation-7" width="29" height="30"/>
+        <namedColor name="Blue">
+            <color red="0.14900000390000001" green="0.1879999936" blue="0.21999999880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

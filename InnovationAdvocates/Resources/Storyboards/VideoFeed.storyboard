@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kNB-PS-e0m">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Videos-->
+        <scene sceneID="ocS-BO-kqf">
+            <objects>
+                <tableViewController id="Dze-PD-EoN" customClass="VideoFeedController" customModule="InnovationAdvocates" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2On-iw-gdG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="549.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoFeedCell" rowHeight="149" id="Vj9-H4-G20">
+                                <rect key="frame" x="0.0" y="28" width="375" height="149"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vj9-H4-G20" id="yUY-bW-Bbu">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Dze-PD-EoN" id="gC7-DV-Pfu"/>
+                            <outlet property="delegate" destination="Dze-PD-EoN" id="SYF-ff-t6R"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Videos" id="44j-MC-nze"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="be0-cN-5Yc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1759" y="329"/>
+        </scene>
+        <!--Videos-->
+        <scene sceneID="gfS-wD-MHL">
+            <objects>
+                <navigationController title="Videos" automaticallyAdjustsScrollViewInsets="NO" id="kNB-PS-e0m" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Videos" image="video-player-7" selectedImage="video-player-7" id="bQT-MV-b9u"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="yBL-x6-tuU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="97.5"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="Blue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="40"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dze-PD-EoN" kind="relationship" relationship="rootViewController" id="4hx-CT-AvN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWc-S8-N7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="820" y="329"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="video-player-7" width="30" height="30"/>
+        <namedColor name="Blue">
+            <color red="0.14900000390000001" green="0.1879999936" blue="0.21999999880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

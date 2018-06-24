@@ -38,6 +38,11 @@
 		288A71B520D542A700CB9BD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A71B420D542A700CB9BD8 /* User.swift */; };
 		2892B9FF20DB9C2800F4934E /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892B9FE20DB9C2800F4934E /* Presentation.swift */; };
 		28B47C8920DEAFE2007CFCE8 /* NetworkTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B47C8820DEAFE2007CFCE8 /* NetworkTwo.swift */; };
+		28B47C8C20E0191E007CFCE8 /* MainFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C8B20E0191E007CFCE8 /* MainFeed.storyboard */; };
+		28B47C8E20E019A8007CFCE8 /* VideoFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C8D20E019A8007CFCE8 /* VideoFeed.storyboard */; };
+		28B47C9020E019FC007CFCE8 /* PresntationFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */; };
+		28B47C9220E01A2A007CFCE8 /* EventsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */; };
+		28B47C9420E01A58007CFCE8 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */; };
 		28E887FA20DBA2FE00C6D3B3 /* PresentationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E887F920DBA2FE00C6D3B3 /* PresentationDetailViewController.swift */; };
 		28F09DFF20DA3CCC003B681C /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F09DFE20DA3CCC003B681C /* EventDetailViewController.swift */; };
 		52A41141CC033C492EFE87EE /* Pods_InnovationAdvocates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C8A987D3DD900B0A94CCFD /* Pods_InnovationAdvocates.framework */; };
@@ -78,6 +83,11 @@
 		288A71B420D542A700CB9BD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2892B9FE20DB9C2800F4934E /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
 		28B47C8820DEAFE2007CFCE8 /* NetworkTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTwo.swift; sourceTree = "<group>"; };
+		28B47C8B20E0191E007CFCE8 /* MainFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainFeed.storyboard; sourceTree = "<group>"; };
+		28B47C8D20E019A8007CFCE8 /* VideoFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoFeed.storyboard; sourceTree = "<group>"; };
+		28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PresntationFeed.storyboard; sourceTree = "<group>"; };
+		28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsFeed.storyboard; sourceTree = "<group>"; };
+		28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		28E887F920DBA2FE00C6D3B3 /* PresentationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDetailViewController.swift; sourceTree = "<group>"; };
 		28F09DFE20DA3CCC003B681C /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		70C8A987D3DD900B0A94CCFD /* Pods_InnovationAdvocates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnovationAdvocates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,13 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				2801C34620D2680200F69282 /* Resources */,
-				285E90D220D2CDF2001D5C9A /* Network */,
 				2801C33820D25C9900F69282 /* Model */,
 				2801C33920D25C9F00F69282 /* View */,
 				2801C33720D25C8E00F69282 /* Controller */,
 				2801C32C20D2597000F69282 /* Assets.xcassets */,
-				2801C32920D2596E00F69282 /* Main.storyboard */,
-				2801C32E20D2597000F69282 /* LaunchScreen.storyboard */,
 				2801C33120D2597000F69282 /* Info.plist */,
 				2801C32320D2596E00F69282 /* AppDelegate.swift */,
 				2801C35F20D2C6E400F69282 /* GoogleService-Info.plist */,
@@ -165,15 +172,10 @@
 			isa = PBXGroup;
 			children = (
 				28032C9C20D333EA0011CBDF /* HomeFeedImageTableViewCell.swift */,
-				28032C9D20D333EA0011CBDF /* HomeFeedImageTableViewCell.xib */,
 				2801C33E20D25D0000F69282 /* HomeFeedTableViewCell.swift */,
-				2801C33F20D25D0000F69282 /* HomeFeedTableViewCell.xib */,
 				2801C34220D25D0D00F69282 /* VideoFeedTableViewCell.swift */,
-				2801C34320D25D0D00F69282 /* VideoFeedTableViewCell.xib */,
 				2801C34F20D2754900F69282 /* EventsTableViewCell.swift */,
-				2801C35020D2754900F69282 /* EventsTableViewCell.xib */,
 				2801C35320D2755700F69282 /* PresentationTableViewCell.swift */,
-				2801C35420D2755700F69282 /* PresentationTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				2801C34720D2682200F69282 /* Colors.xcassets */,
+				28B47C9520E01AD7007CFCE8 /* Storyboards */,
+				28B47C9620E01B79007CFCE8 /* Cell UI */,
+				285E90D220D2CDF2001D5C9A /* Network */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -193,6 +198,32 @@
 				28B47C8820DEAFE2007CFCE8 /* NetworkTwo.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		28B47C9520E01AD7007CFCE8 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2801C32920D2596E00F69282 /* Main.storyboard */,
+				28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */,
+				28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */,
+				28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */,
+				28B47C8D20E019A8007CFCE8 /* VideoFeed.storyboard */,
+				28B47C8B20E0191E007CFCE8 /* MainFeed.storyboard */,
+				2801C32E20D2597000F69282 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		28B47C9620E01B79007CFCE8 /* Cell UI */ = {
+			isa = PBXGroup;
+			children = (
+				2801C33F20D25D0000F69282 /* HomeFeedTableViewCell.xib */,
+				28032C9D20D333EA0011CBDF /* HomeFeedImageTableViewCell.xib */,
+				2801C34320D25D0D00F69282 /* VideoFeedTableViewCell.xib */,
+				2801C35020D2754900F69282 /* EventsTableViewCell.xib */,
+				2801C35420D2755700F69282 /* PresentationTableViewCell.xib */,
+			);
+			path = "Cell UI";
 			sourceTree = "<group>";
 		};
 		C202C6B465D9F8D2ED2FD38D /* Pods */ = {
@@ -274,10 +305,15 @@
 			files = (
 				2801C36020D2C6E400F69282 /* GoogleService-Info.plist in Resources */,
 				2801C34520D25D0D00F69282 /* VideoFeedTableViewCell.xib in Resources */,
+				28B47C8E20E019A8007CFCE8 /* VideoFeed.storyboard in Resources */,
 				2801C33020D2597000F69282 /* LaunchScreen.storyboard in Resources */,
 				2801C35220D2754900F69282 /* EventsTableViewCell.xib in Resources */,
 				2801C32D20D2597000F69282 /* Assets.xcassets in Resources */,
+				28B47C8C20E0191E007CFCE8 /* MainFeed.storyboard in Resources */,
+				28B47C9020E019FC007CFCE8 /* PresntationFeed.storyboard in Resources */,
 				2801C34820D2682200F69282 /* Colors.xcassets in Resources */,
+				28B47C9420E01A58007CFCE8 /* UserProfile.storyboard in Resources */,
+				28B47C9220E01A2A007CFCE8 /* EventsFeed.storyboard in Resources */,
 				28032C9F20D333EA0011CBDF /* HomeFeedImageTableViewCell.xib in Resources */,
 				2801C35620D2755700F69282 /* PresentationTableViewCell.xib in Resources */,
 				2801C34120D25D0000F69282 /* HomeFeedTableViewCell.xib in Resources */,

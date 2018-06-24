@@ -278,7 +278,7 @@ class Network {
                         self.bioSignInCancelled = true
                         let ac = UIAlertController(title: "Oooops!" , message: "Authentication Failed! Please login with Username & Password", preferredStyle: .alert)
                         ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { (nil) in
-                            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
+                            let vc = UIStoryboard(name: "MainFeed", bundle: nil).instantiateViewController(withIdentifier: "login")
                             UIApplication.shared.keyWindow?.rootViewController = vc
                         }))
                         view.present(ac, animated: true)
