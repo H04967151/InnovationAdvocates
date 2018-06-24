@@ -13,6 +13,13 @@ class VideoFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var videoTitleLabel: UILabel!
     
+    var video: Video? {
+        didSet{
+            thumbnailImageView.sd_setImage(with: URL(string: (video?.thumbnailURL!)!), completed: nil)
+            videoTitleLabel.text = video?.title
+        }
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

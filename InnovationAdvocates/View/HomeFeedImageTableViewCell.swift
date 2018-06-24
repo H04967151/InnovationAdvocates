@@ -24,13 +24,35 @@ class HomeFeedImageTableViewCell: UITableViewCell {
     @IBOutlet weak var likeBtnImage: UIButton!
     @IBOutlet weak var likedByUseLabel: UILabel!
     
-    var post: Post!
+    var likedByUser = [String]()
+    var username = String()
+    var likedBy = String()
+    var numberOfLikes = Int()
+    
+    
     var delegate: HomeFeedImageTableViewCellDelegate?
     let impact = UINotificationFeedbackGenerator()
     
+    var post: Post?{
+        didSet{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM dd - H:mm"
+            let dateString = formatter.string(from: (post?.date!)!)
+            likedByUseLabel.layer.opacity = 0
+            likleCountLabel.layer.opacity = 0
+            usernameLabel.text = post?.username
+            profileImageView.sd_setImage(with: URL(string: (post?.profileImage!)!), completed: nil)
+            dateLabel.text = dateString
+            contentLabel.text = post?.postContent
+            postImageView.sd_setImage(with: URL(string: (post?.postImageURL!)!), completed: nil)
+            likleCountLabel.text = "\(post?.numberOfLikes ?? 0)"
+            selectionStyle = .none
+
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         styleCell()
         
     }
@@ -42,7 +64,7 @@ class HomeFeedImageTableViewCell: UITableViewCell {
     }
     
     @IBAction func likeButton(_ sender: UIButton) {
-        delegate?.likePostTapped(key: post.key!)
+        delegate?.likePostTapped(key: (post?.key!)!)
         delegate?.updateLikeBtnUI(cell: self)
         impact.notificationOccurred(.success)
     }

@@ -38,9 +38,12 @@ class LoginController: UIViewController {
     
     @IBAction func loginButton(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTexField.text, let name = nameTextField.text{
-            Network.shared.createUser(email: email, password: password, username: name, lastLogin: Date())
+            if Network.currentUser == nil {
+                Network.shared.createUser(email: email, password: password, username: name, lastLogin: Date())
+            }else{
+                Network.shared.loginUser(email: email, password: password)
+            }
         }
-        
     }
     
     func runStyles(){

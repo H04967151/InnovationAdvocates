@@ -22,7 +22,28 @@ class HomeFeedTableViewCell: UITableViewCell {
     @IBOutlet weak var likeBtnImage: UIButton!
     @IBOutlet weak var likedByLabel: UILabel!
     
-    var post: Post!
+    var likedByUser = [String]()
+    var username = String()
+    var likedBy = String()
+    var numberOfLikes = Int()
+    
+    var post: Post?{
+        didSet{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMMM dd - H:mm"
+            let dateString = formatter.string(from: (post?.date!)!)
+            
+            likedByLabel.layer.opacity = 0
+            likeCountLabel.layer.opacity = 0
+            usernameLabel.text = post?.username
+            profileImage.sd_setImage(with: URL(string: (post?.profileImage!)!), completed: nil)
+            dateLabel.text = dateString
+            postContentLabel.text = post?.postContent
+            likeCountLabel.text = "\(post?.numberOfLikes ?? 0)"
+            selectionStyle = .none
+            
+        }
+    }
     var delegate: HomeFeedTableViewCellDelegate?
     
     override func awakeFromNib() {
@@ -43,7 +64,7 @@ class HomeFeedTableViewCell: UITableViewCell {
     }
     
     @IBAction func likeButton(_ sender: UIButton) {
-        delegate?.likePostTapped(key: post.key!)
+        delegate?.likePostTapped(key: (post?.key!)!)
     }
     
 }

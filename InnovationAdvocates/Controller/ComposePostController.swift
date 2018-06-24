@@ -40,11 +40,8 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
         super.viewDidLoad()
         postTextView.becomeFirstResponder()
         self.runStyles()
-        Network.shared.getUserInfo { (user) in
-            self.userObject = user!
-            self.profileImageView.sd_setImage(with: URL(string: self.userObject["profileImage"] as! String), completed: nil)
-        }
-        
+        let url = Network.currentUser?.photoURL?.absoluteString
+        self.profileImageView.sd_setImage(with: URL(string: url!), completed: nil)
     }
     
    
@@ -118,8 +115,8 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
     }
     
     fileprivate func savePostData() {
-        let username = userObject["username"] as! String
-        let profileImage = userObject["profileImage"] as! String
+        let username = Network.currentUser?.displayName 
+        let profileImage = Network.currentUser?.photoURL?.absoluteString
         if postImageView.image != nil {
             let storage = Storage.storage()
             let ref = storage.reference()
@@ -132,7 +129,7 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
                 print("Upload started")
                 if err == nil {
                     url = (meta?.downloadURLs![0].absoluteString as String?)!
-                    let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: url, date: Date(), key: nil, numberOfLikes: 0)
+                    let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: url, date: Date(), key: nil, numberOfLikes: 0, likedBy: nil)
                     Network.shared.addPost(post: newCreatedPost)
                 }else{
                     print(err?.localizedDescription as Any)
@@ -140,7 +137,7 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
             }
             dismiss(animated: true, completion: nil)
         }else{
-            let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: "nil", date: Date(), key: nil, numberOfLikes: 0)
+            let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: "nil", date: Date(), key: nil, numberOfLikes: 0, likedBy: nil)
             Network.shared.addPost(post: newCreatedPost)
             dismiss(animated: true, completion: nil)
         }

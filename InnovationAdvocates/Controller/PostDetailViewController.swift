@@ -17,6 +17,7 @@ class PostDetailViewController: UIViewController {
     var image = String()
     var profileImage = String()
     let colorArray = [UIColor(named: "Red"), UIColor(named: "Grey"), UIColor(named: "Blue"), UIColor(named: "Green"), UIColor(named: "Yellow")]
+    var tap = false
     
     
     @IBOutlet weak var dismissBtnView: UIButton!
@@ -33,6 +34,36 @@ class PostDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if image != "nil" {
+            tapGestureInit()
+        }
+    }
+    
+    func tapGestureInit(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(sender: UITapGestureRecognizer? = nil) {
+        tap = !self.tap
+        if tap == true{
+            UIView.animate(withDuration: 0.3) {
+                self.dismissBtnView.layer.opacity = 0
+                self.usernameLabel.layer.opacity = 0
+                self.dateLabel.layer.opacity = 0
+                self.bodyContentLabel.layer.opacity = 0
+                self.profileImageView.layer.opacity = 0
+            }
+            
+        }else{
+            UIView.animate(withDuration: 0.3) {
+                self.dismissBtnView.layer.opacity = 1
+                self.usernameLabel.layer.opacity = 1
+                self.dateLabel.layer.opacity = 1
+                self.bodyContentLabel.layer.opacity = 1
+                self.profileImageView.layer.opacity = 1
+            }
+        }
         
     }
     
@@ -72,7 +103,7 @@ class PostDetailViewController: UIViewController {
                 postImageView.contentMode = .scaleAspectFill
             }
         }else{
-            contentBottomConstraint.constant = 350
+            contentBottomConstraint.constant = 250
         }
             self.view.layoutIfNeeded()
     }

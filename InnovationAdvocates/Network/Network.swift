@@ -56,18 +56,18 @@ class Network {
     }
     
     func likePost(key: String){
-        db.collection("Posts").document(key).collection("likedBy").document((Auth.auth().currentUser?.uid)!).setData(["userID" : Auth.auth().currentUser?.uid as Any,
-                                                                                                                      "userImage" : Auth.auth().currentUser?.photoURL?.absoluteString as Any,
-                                                                                                                      "username" : defaults.string(forKey: "username") as Any
-            ])
-        db.collection("Posts").document(key).collection("likedBy").getDocuments { (snapshot, err) in
-            if err == nil {
-                self.db.collection("Posts").document(key).updateData(["numberOfLikes" : snapshot?.documents.count as Any])
+        if let userUID = Auth.auth().currentUser?.uid, let username = Auth.auth().currentUser?.displayName {
+            db.collection("Posts").document(key).updateData(["likedBy.\(userUID)" : username]) { (err) in
+                if err == nil {
+                    self.db.collection("Posts").document(key).collection("likedBy").document((Auth.auth().currentUser?.uid)!).setData(["username" : Auth.auth().currentUser?.displayName!, "profileImage" : Auth.auth().currentUser?.photoURL?.absoluteString], completion: { (err) in
+                        
+                    })
+                }
             }
         }
-        
     }
     
+        
     func retreiveLikes(key: String,  completion: @escaping([[String:Any]])->()){
         var likes = [[String:Any]]()
         db.collection("Posts").document(key).collection("likedBy").getDocuments { (snapshot, err) in
@@ -75,8 +75,9 @@ class Network {
                 for doc in (snapshot?.documents)!{
                     likes.append(doc.data() )
                 }
+                completion(likes)
             }
-            completion(likes)
+            
         }
     }
     
@@ -145,7 +146,7 @@ class Network {
     func retrievePosts(completion: @escaping ([Post]) -> ()){
         SVProgressHUD.show(withStatus: "Loading..")
         var returnedPosts = [Post]()
-        db.collection("Posts").order(by: "date").addSnapshotListener { (snapshot, err) in
+        db.collection("Posts").order(by: "date").addSnapshotListener{ (snapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -157,15 +158,13 @@ class Network {
                     let postContent         = document.data()["postContent"] as! String
                     let date                = document.data()["date"] as! Date
                     let imageURL            = document.data()["postImageURL"] as! String
-                    let numberOfLikes       = document.data()["numberOfLikes"] as? Int ?? 0
-                    returnedPosts.insert(Post(username: username, profileImage: profileImage, postContent: postContent, postImageURL: imageURL, date: date, key: key, numberOfLikes: numberOfLikes), at: 0)
+                    let likedBy             = document.data()["likedBy"] as? [String: Any]
+                    returnedPosts.insert(Post(username: username, profileImage: profileImage, postContent: postContent, postImageURL: imageURL, date: date, key: key, numberOfLikes: likedBy?.count, likedBy: likedBy), at: 0)
                 }
                 completion(returnedPosts)
                 SVProgressHUD.dismiss()
             }
-            
         }
-        
     }
     
     func retrieveVideos(completion: @escaping ([Video]) -> ()){
@@ -202,7 +201,7 @@ class Network {
                     let endDate = doc.data()["endDate"] as! Date
                     let spaces = doc.data()["spaces"] as! Int
                     let key = doc.documentID
-                    returnedEvents.insert(Event(title: title, description: description, startTime: startDate, endTime: endDate, spaces: spaces, key: key), at: 0)
+                    returnedEvents.insert(Event(title: title, description: description, startTime: startDate, endTime: endDate, spaces: spaces, key: key, attendees: nil), at: 0)
                 }
                 completion(returnedEvents)
                 SVProgressHUD.setSuccessImage(#imageLiteral(resourceName: "favorite-heart-button"))
@@ -268,7 +267,6 @@ class Network {
     func bioMetricCheck(view: UIViewController){
         let context = LAContext()
         var err: NSError?
-        
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &err){
             let reason = "It's OK I dont bite"
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply: { (success, err) in
@@ -302,8 +300,8 @@ class Network {
         
     }
     
-    func getUserInfo(completion: @escaping ([String: Any]?)->()){
-        db.collection("Users").document((Network.currentUser?.uid)!).getDocument { (doc, err) in
+    func getUserInfo(uid: String, completion: @escaping ([String: Any]?)->()){
+        db.collection("Users").document(uid).getDocument { (doc, err) in
             if let _ = doc, (doc?.exists)! {
                 if let dataDescription = doc?.data() {
                     completion(dataDescription)
@@ -315,8 +313,10 @@ class Network {
     }
     
     func createUser(email: String, password: String, username: String, lastLogin: Date){
+        SVProgressHUD.show(withStatus: "Creating Account")
         Auth.auth().createUser(withEmail: email, password: password) { (user, err) in
             if let activeUser = user {
+                SVProgressHUD.dismiss()
                 self.db.collection("Users").document(activeUser.uid).setData([
                     "username": username ,
                     "uid": activeUser.uid ,
@@ -328,15 +328,14 @@ class Network {
                 changeRequ?.photoURL = URL(string: "https://firebasestorage.googleapis.com/v0/b/innovation-app-e79c3.appspot.com/o/Defaults%2Fimages%2FIcon-512.png?alt=media&token=39a5c9f1-13f7-456a-be0a-b6a10652b4e6")
                 changeRequ?.displayName = username
                 changeRequ?.commitChanges(completion: { (err) in
-                    if err != nil {
-                        print(err?.localizedDescription as Any)
+                    if err == nil {
+                        self.loginUser(email: email, password: password)
                     }
                 })
                 self.defaults.set(username, forKey: "username")
                 self.defaults.set(email, forKey: "email")
             }else if err != nil {
                 print(err?.localizedDescription as Any)
-                self.loginUser(email: email, password: password)
             }
         }
     }

@@ -48,14 +48,14 @@ class PresentationController: UITableViewController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let presentationCell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PresentationTableViewCell
         let presentation = presentations[indexPath.row]
+        presentationCell.presentation = presentation
         
-        presentationCell.titleLabelView.text = presentation.title
-        presentationCell.descriptionLabelView.text = presentation.description
         return presentationCell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let presentation = presentations[indexPath.row]
+        
         let url = presentation.url
         if let vc = storyboard?.instantiateViewController(withIdentifier: "webView") as? PresentationDetailViewController {
             vc.url = url!

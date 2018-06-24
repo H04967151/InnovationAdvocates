@@ -15,6 +15,7 @@ struct Event {
     let endTime: Date?
     let spaces: Int?
     let key: String?
+    var attendees: [EventAttendee]?
 }
 
 struct EventAttendee {

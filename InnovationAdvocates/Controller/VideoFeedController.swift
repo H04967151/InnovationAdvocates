@@ -55,8 +55,7 @@ extension VideoFeedController{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let videoCell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! VideoFeedTableViewCell
         let video = videos.reversed()[indexPath.row]
-        videoCell.thumbnailImageView.sd_setImage(with: URL(string: video.thumbnailURL!), completed: nil)
-        videoCell.videoTitleLabel.text = video.title
+        videoCell.video = video
         
         return videoCell
     }

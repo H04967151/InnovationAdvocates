@@ -18,4 +18,5 @@ struct Post {
     let date: Date?
     let key: String?
     let numberOfLikes: Int?
+    let likedBy: [String:Any]?
 }

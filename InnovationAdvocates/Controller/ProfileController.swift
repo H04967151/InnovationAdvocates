@@ -21,7 +21,7 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Network.shared.getUserInfo { (user) in
+        Network.shared.getUserInfo(uid: (Network.currentUser?.uid)!) { (user) in
             if let user = user {
                 self.userObject = user
                 self.usernameLabel.text = self.userObject["username"] as? String
