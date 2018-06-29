@@ -20,6 +20,8 @@ class PresentationDetailViewController: UIViewController, WKNavigationDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let value = UIInterfaceOrientation.landscapeLeft.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         webView.load(URLRequest(url:
             URL(string: url)!))
@@ -27,12 +29,12 @@ class PresentationDetailViewController: UIViewController, WKNavigationDelegate, 
         webView.scrollView.delegate = self
         runStyles()
     }
-    
+        
     func runStyles(){
         dismissButtonView.layer.cornerRadius = dismissButtonView.frame.height / 2
         dismissButtonView.backgroundColor = UIColor(white: 0, alpha: 0.7)
     }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "estimatedProgress" {
             SVProgressHUD.showProgress(Float(webView.estimatedProgress), status: "Loading...")

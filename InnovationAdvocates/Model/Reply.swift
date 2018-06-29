@@ -1,16 +1,14 @@
 //
-//  Post.swift
+//  Reply.swift
 //  InnovationAdvocates
 //
-//  Created by Neil on 14/06/2018.
+//  Created by Neil on 26/06/2018.
 //  Copyright © 2018 Neil. All rights reserved.
 //
 
 import Foundation
-import Firebase
 
-struct Post {
-    
+struct Reply {
     let username: String?
     let profileImage: String?
     let postContent: String?
@@ -19,5 +17,4 @@ struct Post {
     let key: String?
     let numberOfLikes: Int?
     let likedBy: [String:Any]?
-    let numberOfReplies: Int?
 }

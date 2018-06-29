@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" rowHeight="153" id="OEO-8g-xQK" customClass="HomeFeedImageTableViewCell" customModule="InnovationAdvocates" customModuleProvider="target">
@@ -43,6 +44,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="never" id="Wq8-B8-9CD">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="mOB-Sg-EDH"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nVi-K2-akN">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -58,7 +60,7 @@
         <!--Compose Post Controller-->
         <scene sceneID="7Yv-cq-fYy">
             <objects>
-                <viewController id="sWL-7z-Pip" customClass="ComposePostController" customModule="InnovationAdvocates" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ComposePostController" id="sWL-7z-Pip" customClass="ComposePostController" customModule="InnovationAdvocates" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ez5-T4-goB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

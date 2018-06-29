@@ -57,10 +57,40 @@ class HomeFeedController: UITableViewController {
         barButton.customView = button
         self.navigationItem.leftBarButtonItem = barButton
     }
+    
 }
 
 extension HomeFeedController: HomeFeedImageTableViewCellDelegate, HomeFeedTableViewCellDelegate {
+    func imageTapped(post: Post) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "postDetailView") as? PostDetailViewController {
+            vc.content = post.postContent!
+            vc.date = post.date!
+            vc.username = post.username!
+            vc.image = post.postImageURL!
+            vc.profileImage = post.profileImage!
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
     
+    func moreBtnTapped(key: String) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Block User", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Hide Post", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Report Post", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        present(alertController, animated: true)
+    }
+    
+    func replyButtonTapped(post: Post) {
+        if let vc = UIStoryboard(name: "MainFeed", bundle: nil).instantiateViewController(withIdentifier: "ComposePostController") as? ComposePostController {
+            vc.sentPost = post
+            vc.isReply = true
+            present(vc, animated:true)
+        }
+        
+    }
+    
+        
     func updateLikeBtnUI(cell: HomeFeedImageTableViewCell) {
         cell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button"), for: .normal)
         cell.likeBtnImage.isUserInteractionEnabled = false
@@ -92,41 +122,6 @@ extension HomeFeedController: HomeFeedImageTableViewCellDelegate, HomeFeedTableV
         homeImageCell.delegate = self
         homeImageCell.post = posts[indexPath.row]
         
-        if post.likedBy != nil {
-            
-            homeCell.likedByLabel.layer.opacity = 1
-            homeCell.likeCountLabel.layer.opacity = 1
-            homeCell.numberOfLikes = (post.numberOfLikes)!
-            
-            homeImageCell.likedByUseLabel.layer.opacity = 1
-            homeImageCell.likleCountLabel.layer.opacity = 1
-            homeImageCell.numberOfLikes = (post.numberOfLikes)!
-
-            
-            let username = Network.currentUser?.uid
-            let userLikedPost = post.likedBy![username!]
-            if userLikedPost != nil{
-                    homeImageCell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button"), for: .normal)
-                    homeCell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button"), for: .normal)
-                }else{
-                    homeImageCell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button-outline"), for: .normal)
-                    homeCell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button-outline"), for: .normal)
-                }
-
-//            if let likedBy = post.likedBy!.first {
-//                if likedBy.key == Network.currentUser?.uid{
-//                    homeImageCell.likedByUseLabel.text = "-  You like"
-//                    homeCell.likedByLabel.text = "-  You liked"
-//                }else{
-//                    homeImageCell.likedByUseLabel.text = "-  \(likedBy.value) liked"
-//                    homeCell.likedByLabel.text = "-  \(likedBy.value) liked"
-//                }
-//            }
-            
-        }else{
-            homeImageCell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button-outline"), for: .normal)
-            homeCell.likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button-outline"), for: .normal)
-        }
 
         if post.postImageURL != "nil"{
             return homeImageCell
@@ -137,14 +132,14 @@ extension HomeFeedController: HomeFeedImageTableViewCellDelegate, HomeFeedTableV
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = posts[indexPath.row]
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "postDetailView") as? PostDetailViewController {
-            vc.content = post.postContent!
-            vc.date = post.date!
-            vc.username = post.username!
-            vc.image = post.postImageURL!
-            vc.profileImage = post.profileImage!
-            self.present(vc, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "ReplyFeedStoryboard", bundle: nil)
+        if let vc = storyboard.instantiateViewController(withIdentifier: "ReplyFeed") as? ReplyFeedTableViewController {
+            vc.originalPost = post
+            self.navigationController?.navigationBar.tintColor = UIColor.white
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
+
+
 

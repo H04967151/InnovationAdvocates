@@ -14,12 +14,14 @@ class PresentationController: UITableViewController{
     let cellID = "PresentationCell"
     var presentations = [Presentation]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName:"PresentationTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         Network.shared.retrievePresentations { (returnedPresentations) in
             self.presentations = returnedPresentations
             self.tableView.reloadData()
+            
         }
     }
     

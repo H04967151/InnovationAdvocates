@@ -36,7 +36,7 @@ class NetworkTwo{
                     for doc in (snap?.documents)!{
                         let userID = doc.documentID
                         let userImage = doc.data()["userImage"]
-                        attendees.insert(EventAttendee(userID: userID, userImage: userImage as! String), at: 0)
+                        attendees.insert(EventAttendee(userID: userID, userImage: (userImage as? String)), at: 0)
                     }
                 })
                 completion(events, attendees)

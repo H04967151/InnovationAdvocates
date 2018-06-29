@@ -95,12 +95,15 @@ class PostDetailViewController: UIViewController {
             let gradientLayer = CAGradientLayer()
             gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.8).cgColor]
             gradientLayer.locations = [0.6, 1 ]
-            gradientLayer.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: postImageView.bounds.height + 25)
+            gradientLayer.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.bounds.height + 25)
             postImageView.layer.addSublayer(gradientLayer)
             
-            if Int((postImageView.image?.size.height)!) > Int((postImageView.image?.size.width)!) {
-                postImageView.contentMode = .scaleAspectFill
+            if let postImage = postImageView.image{
+                if Int((postImage.size.height)) > Int((postImage.size.width)) {
+                    postImageView.contentMode = .scaleAspectFill
+                }
             }
+           
         }else{
             contentBottomConstraint.constant = 250
         }

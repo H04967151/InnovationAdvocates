@@ -59,19 +59,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywt-gW-VgR">
-                                <rect key="frame" x="220" y="40" width="42" height="42"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="81S-l8-9WH"/>
-                                    <constraint firstAttribute="width" constant="42" id="usP-eQ-aAW"/>
-                                </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="pencil-7"/>
-                                <connections>
-                                    <action selector="changeProfileImage:" destination="VH3-Ew-QSs" eventType="touchUpInside" id="xa2-Zc-DB8"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -79,13 +66,11 @@
                             <constraint firstItem="DPm-rN-P9W" firstAttribute="trailing" secondItem="dcW-6z-GnG" secondAttribute="trailing" id="4Pr-Wq-lVY"/>
                             <constraint firstItem="gqb-Cc-sAD" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="5Ai-K9-xjl"/>
                             <constraint firstItem="DPm-rN-P9W" firstAttribute="leading" secondItem="dcW-6z-GnG" secondAttribute="leading" id="B7g-bj-WQt"/>
-                            <constraint firstItem="ywt-gW-VgR" firstAttribute="trailing" secondItem="gqb-Cc-sAD" secondAttribute="trailing" id="BLv-aA-L4k"/>
                             <constraint firstItem="gqb-Cc-sAD" firstAttribute="top" secondItem="dcW-6z-GnG" secondAttribute="top" constant="32" id="DfX-dr-Y7P"/>
                             <constraint firstItem="DPm-rN-P9W" firstAttribute="top" secondItem="gqb-Cc-sAD" secondAttribute="bottom" constant="22" id="LqF-WB-zCn"/>
                             <constraint firstItem="1fq-cC-2k5" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="PMs-fd-aun"/>
                             <constraint firstItem="oWK-4M-RHg" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="QtB-nP-4ra"/>
                             <constraint firstItem="dcW-6z-GnG" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1fq-cC-2k5" secondAttribute="trailing" constant="138" id="RhW-Ox-eUg"/>
-                            <constraint firstItem="ywt-gW-VgR" firstAttribute="top" secondItem="dcW-6z-GnG" secondAttribute="top" constant="40" id="VoI-FM-0g4"/>
                             <constraint firstItem="oWK-4M-RHg" firstAttribute="top" secondItem="3Mq-h1-NvU" secondAttribute="bottom" constant="16" id="d3u-J4-anI"/>
                             <constraint firstItem="3Mq-h1-NvU" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="erK-s9-6rY"/>
                             <constraint firstItem="3Mq-h1-NvU" firstAttribute="top" secondItem="DPm-rN-P9W" secondAttribute="bottom" constant="8" id="j6v-lY-w4m"/>
@@ -93,9 +78,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dcW-6z-GnG"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="8IW-YD-xV0"/>
+                    <navigationItem key="navigationItem" title="Profile" id="8IW-YD-xV0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gQv-ev-AhD">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeProfileImage:" destination="VH3-Ew-QSs" id="y1W-HO-g0Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="editImageButtom" destination="ywt-gW-VgR" id="bXQ-Zl-3s0"/>
                         <outlet property="emailLabel" destination="3Mq-h1-NvU" id="asn-pm-06h"/>
                         <outlet property="lastLoginLabel" destination="oWK-4M-RHg" id="L8s-Vc-taG"/>
                         <outlet property="profileImageView" destination="gqb-Cc-sAD" id="efS-PT-zUe"/>
@@ -139,7 +130,6 @@
     </scenes>
     <resources>
         <image name="origami-7" width="30" height="30"/>
-        <image name="pencil-7" width="30" height="30"/>
         <namedColor name="Blue">
             <color red="0.14900000390000001" green="0.1879999936" blue="0.21999999880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

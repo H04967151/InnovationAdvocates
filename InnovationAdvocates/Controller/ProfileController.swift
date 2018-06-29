@@ -11,7 +11,7 @@ import SDWebImage
 
 class ProfileController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    @IBOutlet weak var editImageButtom: UIButton!
+
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var signOutBtn: UIButton!
@@ -48,11 +48,8 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
         tabBarController?.tabBar.barTintColor = UIColor(named: "Grey")
         navigationController?.navigationBar.barTintColor = UIColor(named: "Grey")
         signOutBtn.layer.cornerRadius = signOutBtn.frame.height / 2
-        editImageButtom.layer.cornerRadius = editImageButtom.frame.height / 2
-        editImageButtom.layer.borderColor = UIColor(named: "Red")?.cgColor
-        editImageButtom.layer.borderWidth = 2
     }
-    @IBAction func changeProfileImage(_ sender: UIButton) {
+    @IBAction func changeProfileImage(_ sender: UIBarButtonItem) {
         let vc = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             vc.sourceType = .camera

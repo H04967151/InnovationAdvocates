@@ -21,7 +21,10 @@ class Network {
     let defaults = UserDefaults.standard
     var bioSignInCancelled = false
     
+
+    
     func addPost(post: Post){
+        SVProgressHUD.show(withStatus: "Posting...")
         var ref: DocumentReference? = nil
         ref = db.collection("Posts").addDocument(data: [
             "username": post.username as Any,
@@ -35,6 +38,58 @@ class Network {
             } else {
                 let key = ref?.documentID
                 self.saveToUserPostList(docID: key!)
+                SVProgressHUD.dismiss()
+            }
+        }
+    }
+    
+    func replyToPost(post: Post, key: String){
+            SVProgressHUD.show(withStatus: "Posting...")
+            var ref: DocumentReference? = nil
+            ref = db.collection("Posts").document(key).collection("replies").addDocument(data: [
+                "username": post.username as Any,
+                "profileImage": post.profileImage as Any,
+                "postContent": post.postContent as Any,
+                "date": post.date as Any,
+                "postImageURL": post.postImageURL as Any
+            ]) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                } else {
+    //                let key = ref?.documentID
+    //                self.saveToUserPostList(docID: key!)
+                    let UID = UUID()
+                    SVProgressHUD.dismiss()
+                    if let userUID = Auth.auth().currentUser?.uid {
+                        self.db.collection("Posts").document(key).updateData(["repliedBy.\(UID)" : userUID]) { (err) in
+                            if err == nil{
+                                print("saved")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+    func retrieveReplies(originalPost: Post, completion: @escaping ([Reply]) -> ()){
+        db.collection("Posts").document(originalPost.key!).collection("replies").order(by: "date").addSnapshotListener { (QuerySnapshot, err) in
+            var returnedReplies: [Reply]
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                returnedReplies = []
+                for document in QuerySnapshot!.documents {
+                    let key                 = document.documentID
+                    let username            = document.data()["username"] as! String
+                    let profileImage        = document.data()["profileImage"] as! String
+                    let postContent         = document.data()["postContent"] as! String
+                    let date                = document.data()["date"] as! Date
+                    let imageURL            = document.data()["postImageURL"] as! String
+                    let likedBy             = document.data()["likedBy"] as? [String: Any]
+                    returnedReplies.insert(Reply(username: username, profileImage: profileImage, postContent: postContent, postImageURL: imageURL, date: date, key: key, numberOfLikes: likedBy?.count, likedBy: likedBy), at: 0)
+                }
+                completion(returnedReplies)
+                SVProgressHUD.dismiss()
             }
         }
     }
@@ -55,11 +110,12 @@ class Network {
         }
     }
     
+    
     func likePost(key: String){
         if let userUID = Auth.auth().currentUser?.uid, let username = Auth.auth().currentUser?.displayName {
             db.collection("Posts").document(key).updateData(["likedBy.\(userUID)" : username]) { (err) in
                 if err == nil {
-                    self.db.collection("Posts").document(key).collection("likedBy").document((Auth.auth().currentUser?.uid)!).setData(["username" : Auth.auth().currentUser?.displayName!, "profileImage" : Auth.auth().currentUser?.photoURL?.absoluteString], completion: { (err) in
+                    self.db.collection("Posts").document(key).collection("likedBy").document((Auth.auth().currentUser?.uid)!).setData(["username" : Auth.auth().currentUser?.displayName, "profileImage" : Auth.auth().currentUser?.photoURL?.absoluteString as! String], completion: { (err) in
                         
                     })
                 }
@@ -159,7 +215,8 @@ class Network {
                     let date                = document.data()["date"] as! Date
                     let imageURL            = document.data()["postImageURL"] as! String
                     let likedBy             = document.data()["likedBy"] as? [String: Any]
-                    returnedPosts.insert(Post(username: username, profileImage: profileImage, postContent: postContent, postImageURL: imageURL, date: date, key: key, numberOfLikes: likedBy?.count, likedBy: likedBy), at: 0)
+                    let repliedBy           = document.data()["repliedBy"] as? [String: Any]
+                    returnedPosts.insert(Post(username: username, profileImage: profileImage, postContent: postContent, postImageURL: imageURL, date: date, key: key, numberOfLikes: likedBy?.count, likedBy: likedBy, numberOfReplies: repliedBy?.count), at: 0)
                 }
                 completion(returnedPosts)
                 SVProgressHUD.dismiss()
@@ -214,7 +271,7 @@ class Network {
     
     func attendEvent(key: String, view: UIViewController, completion: @escaping (Bool) -> ()){
         SVProgressHUD.show(withStatus: "Booking your space")
-        db.collection("Events").document(key).collection("attendees").document((Auth.auth().currentUser?.uid)!).setData(["userImage" : Auth.auth().currentUser?.photoURL?.absoluteString]) { (err) in
+        db.collection("Events").document(key).collection("attendees").document((Auth.auth().currentUser?.uid)!).setData(["userImage" : Auth.auth().currentUser?.photoURL?.absoluteString as Any]) { (err) in
             if err == nil {
                 if err == nil {
                     SVProgressHUD.showSuccess(withStatus: "Ticket Reserved")
@@ -292,6 +349,8 @@ class Network {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            self.defaults.removeObject(forKey: "username")
+            self.defaults.removeObject(forKey: "email")
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login")
             UIApplication.shared.keyWindow?.rootViewController = vc
         } catch let signOutError as NSError {
@@ -334,7 +393,10 @@ class Network {
                 })
                 self.defaults.set(username, forKey: "username")
                 self.defaults.set(email, forKey: "email")
-            }else if err != nil {
+            }else if err?.localizedDescription != nil {
+                SVProgressHUD.dismiss()
+                SVProgressHUD.show(withStatus: "Siging In")
+                self.loginUser(email: email, password: password)
                 print(err?.localizedDescription as Any)
             }
         }
@@ -343,9 +405,16 @@ class Network {
     func loginUser(email: String, password: String){
         SVProgressHUD.show(withStatus: "Loging In")
         Auth.auth().signIn(withEmail: email, password: password) { (user, err) in
-            SVProgressHUD.dismiss()
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "home")
-            UIApplication.shared.keyWindow?.rootViewController = vc
+            if err == nil {
+                let username = Auth.auth().currentUser?.displayName
+                let email = Auth.auth().currentUser?.email
+                SVProgressHUD.dismiss()
+                self.defaults.set(username, forKey: "username")
+                self.defaults.set(email, forKey: "email")
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "home")
+                UIApplication.shared.keyWindow?.rootViewController = vc
+            }
+            
         }
     }
 }

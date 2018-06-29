@@ -34,6 +34,12 @@
 		283B8E3C20D9808B001DB55F /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 283B8E3B20D9808B001DB55F /* PostDetailViewController.swift */; };
 		285E90D420D2CE06001D5C9A /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E90D320D2CE06001D5C9A /* Network.swift */; };
 		285E90D620D2EB0B001D5C9A /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285E90D520D2EB0B001D5C9A /* ProfileController.swift */; };
+		28820DA020E3FE60004D22F9 /* ReplyFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28820D9F20E3FE60004D22F9 /* ReplyFeedCell.xib */; };
+		28820DA220E3FEB7004D22F9 /* ReplyFeedImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28820DA120E3FEB7004D22F9 /* ReplyFeedImageCell.xib */; };
+		28820DA420E3FF1B004D22F9 /* ReplyFeedImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28820DA320E3FF1B004D22F9 /* ReplyFeedImageCell.swift */; };
+		28820DA620E401B3004D22F9 /* ReplyFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28820DA520E401B3004D22F9 /* ReplyFeedCell.swift */; };
+		28820DA820E53FA2004D22F9 /* ReplyHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28820DA720E53FA2004D22F9 /* ReplyHeaderTableViewCell.swift */; };
+		28820DAA20E54415004D22F9 /* ReplyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28820DA920E54415004D22F9 /* ReplyHeader.xib */; };
 		288A71B320D401FD00CB9BD8 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A71B220D401FD00CB9BD8 /* LoginController.swift */; };
 		288A71B520D542A700CB9BD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288A71B420D542A700CB9BD8 /* User.swift */; };
 		2892B9FF20DB9C2800F4934E /* Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2892B9FE20DB9C2800F4934E /* Presentation.swift */; };
@@ -43,6 +49,9 @@
 		28B47C9020E019FC007CFCE8 /* PresntationFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */; };
 		28B47C9220E01A2A007CFCE8 /* EventsFeed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */; };
 		28B47C9420E01A58007CFCE8 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */; };
+		28B47C9820E2C9A9007CFCE8 /* ReplyFeedStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28B47C9720E2C9A9007CFCE8 /* ReplyFeedStoryboard.storyboard */; };
+		28B47C9A20E2CA0C007CFCE8 /* ReplyFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B47C9920E2CA0C007CFCE8 /* ReplyFeedTableViewController.swift */; };
+		28B47CA020E2CC01007CFCE8 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B47C9F20E2CC01007CFCE8 /* Reply.swift */; };
 		28E887FA20DBA2FE00C6D3B3 /* PresentationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E887F920DBA2FE00C6D3B3 /* PresentationDetailViewController.swift */; };
 		28F09DFF20DA3CCC003B681C /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F09DFE20DA3CCC003B681C /* EventDetailViewController.swift */; };
 		52A41141CC033C492EFE87EE /* Pods_InnovationAdvocates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70C8A987D3DD900B0A94CCFD /* Pods_InnovationAdvocates.framework */; };
@@ -79,6 +88,12 @@
 		283B8E3B20D9808B001DB55F /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		285E90D320D2CE06001D5C9A /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		285E90D520D2EB0B001D5C9A /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		28820D9F20E3FE60004D22F9 /* ReplyFeedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyFeedCell.xib; sourceTree = "<group>"; };
+		28820DA120E3FEB7004D22F9 /* ReplyFeedImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyFeedImageCell.xib; sourceTree = "<group>"; };
+		28820DA320E3FF1B004D22F9 /* ReplyFeedImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyFeedImageCell.swift; sourceTree = "<group>"; };
+		28820DA520E401B3004D22F9 /* ReplyFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyFeedCell.swift; sourceTree = "<group>"; };
+		28820DA720E53FA2004D22F9 /* ReplyHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		28820DA920E54415004D22F9 /* ReplyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyHeader.xib; sourceTree = "<group>"; };
 		288A71B220D401FD00CB9BD8 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		288A71B420D542A700CB9BD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2892B9FE20DB9C2800F4934E /* Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentation.swift; sourceTree = "<group>"; };
@@ -88,6 +103,9 @@
 		28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PresntationFeed.storyboard; sourceTree = "<group>"; };
 		28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventsFeed.storyboard; sourceTree = "<group>"; };
 		28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		28B47C9720E2C9A9007CFCE8 /* ReplyFeedStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReplyFeedStoryboard.storyboard; sourceTree = "<group>"; };
+		28B47C9920E2CA0C007CFCE8 /* ReplyFeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyFeedTableViewController.swift; sourceTree = "<group>"; };
+		28B47C9F20E2CC01007CFCE8 /* Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
 		28E887F920DBA2FE00C6D3B3 /* PresentationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDetailViewController.swift; sourceTree = "<group>"; };
 		28F09DFE20DA3CCC003B681C /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		70C8A987D3DD900B0A94CCFD /* Pods_InnovationAdvocates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnovationAdvocates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +149,6 @@
 				2801C33820D25C9900F69282 /* Model */,
 				2801C33920D25C9F00F69282 /* View */,
 				2801C33720D25C8E00F69282 /* Controller */,
-				2801C32C20D2597000F69282 /* Assets.xcassets */,
 				2801C33120D2597000F69282 /* Info.plist */,
 				2801C32320D2596E00F69282 /* AppDelegate.swift */,
 				2801C35F20D2C6E400F69282 /* GoogleService-Info.plist */,
@@ -142,16 +159,17 @@
 		2801C33720D25C8E00F69282 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				288A71B220D401FD00CB9BD8 /* LoginController.swift */,
 				2801C32520D2596E00F69282 /* HomeFeedController.swift */,
+				2801C35D20D2B3EE00F69282 /* ComposePostController.swift */,
+				283B8E3B20D9808B001DB55F /* PostDetailViewController.swift */,
+				28B47C9920E2CA0C007CFCE8 /* ReplyFeedTableViewController.swift */,
 				2801C32720D2596E00F69282 /* VideoFeedController.swift */,
 				2801C35720D2803800F69282 /* PresentationController.swift */,
+				28E887F920DBA2FE00C6D3B3 /* PresentationDetailViewController.swift */,
 				2801C35920D280D800F69282 /* EventsController.swift */,
-				2801C35D20D2B3EE00F69282 /* ComposePostController.swift */,
 				28F09DFE20DA3CCC003B681C /* EventDetailViewController.swift */,
 				285E90D520D2EB0B001D5C9A /* ProfileController.swift */,
-				288A71B220D401FD00CB9BD8 /* LoginController.swift */,
-				283B8E3B20D9808B001DB55F /* PostDetailViewController.swift */,
-				28E887F920DBA2FE00C6D3B3 /* PresentationDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,10 +177,11 @@
 		2801C33820D25C9900F69282 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				288A71B420D542A700CB9BD8 /* User.swift */,
 				2801C34920D26CBF00F69282 /* Post.swift */,
+				28B47C9F20E2CC01007CFCE8 /* Reply.swift */,
 				2801C34B20D2734D00F69282 /* Video.swift */,
 				2801C35B20D29D4300F69282 /* Event.swift */,
-				288A71B420D542A700CB9BD8 /* User.swift */,
 				2892B9FE20DB9C2800F4934E /* Presentation.swift */,
 			);
 			path = Model;
@@ -173,6 +192,9 @@
 			children = (
 				28032C9C20D333EA0011CBDF /* HomeFeedImageTableViewCell.swift */,
 				2801C33E20D25D0000F69282 /* HomeFeedTableViewCell.swift */,
+				28820DA720E53FA2004D22F9 /* ReplyHeaderTableViewCell.swift */,
+				28820DA320E3FF1B004D22F9 /* ReplyFeedImageCell.swift */,
+				28820DA520E401B3004D22F9 /* ReplyFeedCell.swift */,
 				2801C34220D25D0D00F69282 /* VideoFeedTableViewCell.swift */,
 				2801C34F20D2754900F69282 /* EventsTableViewCell.swift */,
 				2801C35320D2755700F69282 /* PresentationTableViewCell.swift */,
@@ -183,9 +205,9 @@
 		2801C34620D2680200F69282 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2801C32C20D2597000F69282 /* Assets.xcassets */,
 				2801C34720D2682200F69282 /* Colors.xcassets */,
 				28B47C9520E01AD7007CFCE8 /* Storyboards */,
-				28B47C9620E01B79007CFCE8 /* Cell UI */,
 				285E90D220D2CDF2001D5C9A /* Network */,
 			);
 			path = Resources;
@@ -203,13 +225,15 @@
 		28B47C9520E01AD7007CFCE8 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				2801C32920D2596E00F69282 /* Main.storyboard */,
-				28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */,
-				28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */,
-				28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */,
-				28B47C8D20E019A8007CFCE8 /* VideoFeed.storyboard */,
-				28B47C8B20E0191E007CFCE8 /* MainFeed.storyboard */,
 				2801C32E20D2597000F69282 /* LaunchScreen.storyboard */,
+				2801C32920D2596E00F69282 /* Main.storyboard */,
+				28B47C8B20E0191E007CFCE8 /* MainFeed.storyboard */,
+				28B47C9720E2C9A9007CFCE8 /* ReplyFeedStoryboard.storyboard */,
+				28B47C8D20E019A8007CFCE8 /* VideoFeed.storyboard */,
+				28B47C8F20E019FC007CFCE8 /* PresntationFeed.storyboard */,
+				28B47C9120E01A2A007CFCE8 /* EventsFeed.storyboard */,
+				28B47C9320E01A58007CFCE8 /* UserProfile.storyboard */,
+				28B47C9620E01B79007CFCE8 /* Cell UI */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -219,6 +243,9 @@
 			children = (
 				2801C33F20D25D0000F69282 /* HomeFeedTableViewCell.xib */,
 				28032C9D20D333EA0011CBDF /* HomeFeedImageTableViewCell.xib */,
+				28820D9F20E3FE60004D22F9 /* ReplyFeedCell.xib */,
+				28820DA120E3FEB7004D22F9 /* ReplyFeedImageCell.xib */,
+				28820DA920E54415004D22F9 /* ReplyHeader.xib */,
 				2801C34320D25D0D00F69282 /* VideoFeedTableViewCell.xib */,
 				2801C35020D2754900F69282 /* EventsTableViewCell.xib */,
 				2801C35420D2755700F69282 /* PresentationTableViewCell.xib */,
@@ -305,8 +332,11 @@
 			files = (
 				2801C36020D2C6E400F69282 /* GoogleService-Info.plist in Resources */,
 				2801C34520D25D0D00F69282 /* VideoFeedTableViewCell.xib in Resources */,
+				28820DAA20E54415004D22F9 /* ReplyHeader.xib in Resources */,
+				28820DA220E3FEB7004D22F9 /* ReplyFeedImageCell.xib in Resources */,
 				28B47C8E20E019A8007CFCE8 /* VideoFeed.storyboard in Resources */,
 				2801C33020D2597000F69282 /* LaunchScreen.storyboard in Resources */,
+				28820DA020E3FE60004D22F9 /* ReplyFeedCell.xib in Resources */,
 				2801C35220D2754900F69282 /* EventsTableViewCell.xib in Resources */,
 				2801C32D20D2597000F69282 /* Assets.xcassets in Resources */,
 				28B47C8C20E0191E007CFCE8 /* MainFeed.storyboard in Resources */,
@@ -317,6 +347,7 @@
 				28032C9F20D333EA0011CBDF /* HomeFeedImageTableViewCell.xib in Resources */,
 				2801C35620D2755700F69282 /* PresentationTableViewCell.xib in Resources */,
 				2801C34120D25D0000F69282 /* HomeFeedTableViewCell.xib in Resources */,
+				28B47C9820E2C9A9007CFCE8 /* ReplyFeedStoryboard.storyboard in Resources */,
 				2801C32B20D2596E00F69282 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,13 +427,17 @@
 				2801C35E20D2B3EE00F69282 /* ComposePostController.swift in Sources */,
 				2801C32420D2596E00F69282 /* AppDelegate.swift in Sources */,
 				2801C34420D25D0D00F69282 /* VideoFeedTableViewCell.swift in Sources */,
+				28820DA620E401B3004D22F9 /* ReplyFeedCell.swift in Sources */,
 				285E90D620D2EB0B001D5C9A /* ProfileController.swift in Sources */,
 				28F09DFF20DA3CCC003B681C /* EventDetailViewController.swift in Sources */,
 				283B8E3C20D9808B001DB55F /* PostDetailViewController.swift in Sources */,
 				2801C34A20D26CBF00F69282 /* Post.swift in Sources */,
+				28B47CA020E2CC01007CFCE8 /* Reply.swift in Sources */,
 				2801C35120D2754900F69282 /* EventsTableViewCell.swift in Sources */,
+				28B47C9A20E2CA0C007CFCE8 /* ReplyFeedTableViewController.swift in Sources */,
 				2801C35A20D280D800F69282 /* EventsController.swift in Sources */,
 				2801C34020D25D0000F69282 /* HomeFeedTableViewCell.swift in Sources */,
+				28820DA420E3FF1B004D22F9 /* ReplyFeedImageCell.swift in Sources */,
 				28E887FA20DBA2FE00C6D3B3 /* PresentationDetailViewController.swift in Sources */,
 				2801C35520D2755700F69282 /* PresentationTableViewCell.swift in Sources */,
 				288A71B320D401FD00CB9BD8 /* LoginController.swift in Sources */,
@@ -411,6 +446,7 @@
 				288A71B520D542A700CB9BD8 /* User.swift in Sources */,
 				2801C32620D2596E00F69282 /* HomeFeedController.swift in Sources */,
 				285E90D420D2CE06001D5C9A /* Network.swift in Sources */,
+				28820DA820E53FA2004D22F9 /* ReplyHeaderTableViewCell.swift in Sources */,
 				2801C35820D2803800F69282 /* PresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

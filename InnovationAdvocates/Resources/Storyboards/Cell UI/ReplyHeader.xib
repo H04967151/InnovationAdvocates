@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="replyHeader" rowHeight="40" id="ZCV-UO-21h" customClass="ReplyHeaderTableViewCell" customModule="InnovationAdvocates" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZCV-UO-21h" id="Udy-na-AWT">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-Qg-YKY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzS-UX-06c">
+                                <rect key="frame" x="60" y="8" width="39" height="23.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEy-ja-YP3">
+                                <rect key="frame" x="16" y="8" width="40" height="23.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
+                                <color key="textColor" name="Blue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Replies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izm-yb-SxF">
+                                <rect key="frame" x="159" y="8" width="53" height="23.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELL-Wo-tTA">
+                                <rect key="frame" x="115" y="8" width="40" height="23.5"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
+                                <color key="textColor" name="Blue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="jEy-ja-YP3" secondAttribute="bottom" constant="8" id="3YG-B4-A52"/>
+                            <constraint firstAttribute="bottom" secondItem="Izm-yb-SxF" secondAttribute="bottom" constant="8" id="4so-WA-n4A"/>
+                            <constraint firstItem="jEy-ja-YP3" firstAttribute="leading" secondItem="Uac-Qg-YKY" secondAttribute="leading" constant="16" id="6jN-Z2-JZC"/>
+                            <constraint firstItem="KzS-UX-06c" firstAttribute="leading" secondItem="jEy-ja-YP3" secondAttribute="trailing" constant="4" id="E1h-65-VbL"/>
+                            <constraint firstItem="ELL-Wo-tTA" firstAttribute="leading" secondItem="KzS-UX-06c" secondAttribute="trailing" constant="16" id="IMu-ft-2fe"/>
+                            <constraint firstAttribute="bottom" secondItem="ELL-Wo-tTA" secondAttribute="bottom" constant="8" id="Iq9-sv-UdP"/>
+                            <constraint firstItem="ELL-Wo-tTA" firstAttribute="leading" secondItem="KzS-UX-06c" secondAttribute="trailing" constant="16" id="ItW-0r-Yc5"/>
+                            <constraint firstItem="KzS-UX-06c" firstAttribute="leading" secondItem="jEy-ja-YP3" secondAttribute="trailing" constant="4" id="LJe-F9-v9J"/>
+                            <constraint firstAttribute="bottom" secondItem="KzS-UX-06c" secondAttribute="bottom" constant="8" id="RHL-H4-D72"/>
+                            <constraint firstItem="KzS-UX-06c" firstAttribute="top" secondItem="Uac-Qg-YKY" secondAttribute="top" constant="8" id="SN4-Kc-DCR"/>
+                            <constraint firstItem="Izm-yb-SxF" firstAttribute="leading" secondItem="ELL-Wo-tTA" secondAttribute="trailing" constant="4" id="jPA-4h-zaT"/>
+                            <constraint firstItem="Izm-yb-SxF" firstAttribute="leading" secondItem="ELL-Wo-tTA" secondAttribute="trailing" constant="4" id="kaU-hr-95J"/>
+                            <constraint firstItem="ELL-Wo-tTA" firstAttribute="top" secondItem="Uac-Qg-YKY" secondAttribute="top" constant="8" id="sXs-YP-2g2"/>
+                            <constraint firstItem="Izm-yb-SxF" firstAttribute="top" secondItem="Uac-Qg-YKY" secondAttribute="top" constant="8" id="xMm-4M-9Jf"/>
+                            <constraint firstItem="jEy-ja-YP3" firstAttribute="top" secondItem="Uac-Qg-YKY" secondAttribute="top" constant="8" id="xUN-Cz-LAb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Uac-Qg-YKY" secondAttribute="bottom" id="7jQ-uh-fKI"/>
+                    <constraint firstAttribute="trailing" secondItem="Uac-Qg-YKY" secondAttribute="trailing" id="dYR-Ql-Ken"/>
+                    <constraint firstItem="Uac-Qg-YKY" firstAttribute="top" secondItem="Udy-na-AWT" secondAttribute="top" id="fM1-6S-Eta"/>
+                    <constraint firstItem="Uac-Qg-YKY" firstAttribute="leading" secondItem="Udy-na-AWT" secondAttribute="leading" id="yO7-an-bMj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="likeLikesLabel" destination="KzS-UX-06c" id="JAX-bJ-PQD"/>
+                <outlet property="likeNumLabel" destination="jEy-ja-YP3" id="vyo-M4-ehN"/>
+                <outlet property="replyNumLabel" destination="ELL-Wo-tTA" id="8cD-jh-Acc"/>
+                <outlet property="replyRepliesLabel" destination="Izm-yb-SxF" id="kgH-ts-7Zh"/>
+            </connections>
+            <point key="canvasLocation" x="179.5" y="272"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Blue">
+            <color red="0.14900000393390656" green="0.18799999356269836" blue="0.2199999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -11,8 +11,10 @@ import AVKit
 import MobileCoreServices
 import Firebase
 import SDWebImage
+import SVProgressHUD
 
-class ComposePostController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+class ComposePostController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
     @IBOutlet weak var dismissBtnView: UIButton!
     @IBOutlet weak var postBtnView: UIButton!
@@ -24,7 +26,9 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
     let homeVC = HomeFeedController()
     let bar = UIToolbar()
     var userObject = [String:Any]()
-    
+    var sentPost: Post?
+    var isReply: Bool?
+
     @IBAction func sendPost(_ sender: UIButton) {
         savePostData()
     }
@@ -54,7 +58,7 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
         
         let camera = UIButton(type: UIButtonType.custom) as UIButton
         camera.setImage(UIImage(named: "camera-7"), for: .normal)
-        camera.tintColor = UIColor.white
+        camera.tintColor = UIColor(named: "Blue")
         camera.sizeToFit()
         camera.addTarget(self, action: #selector(launchCamera), for: .touchUpInside)
         
@@ -62,7 +66,7 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
         
         let photoLibrary = UIButton(type: UIButtonType.custom) as UIButton
         photoLibrary.setImage(UIImage(named: "photo-7"), for: .normal)
-        photoLibrary.tintColor = UIColor.white
+        photoLibrary.tintColor = UIColor(named: "Blue")
         photoLibrary.sizeToFit()
         photoLibrary.addTarget(self, action: #selector(launchPhotoLibray), for: .touchUpInside)
         
@@ -115,6 +119,7 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
     }
     
     fileprivate func savePostData() {
+        SVProgressHUD.show(withStatus: "Posting...")
         let username = Network.currentUser?.displayName 
         let profileImage = Network.currentUser?.photoURL?.absoluteString
         if postImageView.image != nil {
@@ -129,17 +134,36 @@ class ComposePostController: UIViewController, UITextViewDelegate, UINavigationC
                 print("Upload started")
                 if err == nil {
                     url = (meta?.downloadURLs![0].absoluteString as String?)!
-                    let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: url, date: Date(), key: nil, numberOfLikes: 0, likedBy: nil)
-                    Network.shared.addPost(post: newCreatedPost)
+                    let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: url, date: Date(), key: nil, numberOfLikes: 0, likedBy: nil, numberOfReplies: nil)
+                    if self.isReply == true{
+                        Network.shared.replyToPost(post: newCreatedPost, key: (self.sentPost?.key)! )
+                        SVProgressHUD.dismiss()
+                        self.dismiss(animated: true, completion: nil)
+                    }else{
+                        Network.shared.addPost(post: newCreatedPost)
+                        SVProgressHUD.dismiss()
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }else{
+                    SVProgressHUD.dismiss()
+                    SVProgressHUD.showError(withStatus: "Ooooops looks like something went wrong :(")
+                    self.dismiss(animated: true, completion: nil)
                     print(err?.localizedDescription as Any)
                 }
+                
             }
-            dismiss(animated: true, completion: nil)
+           
         }else{
-            let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: "nil", date: Date(), key: nil, numberOfLikes: 0, likedBy: nil)
-            Network.shared.addPost(post: newCreatedPost)
-            dismiss(animated: true, completion: nil)
+            let newCreatedPost = Post(username: username, profileImage: profileImage, postContent: self.postTextView.text, postImageURL: "nil", date: Date(), key: nil, numberOfLikes: 0, likedBy: nil, numberOfReplies: nil)
+            if isReply == true{
+                Network.shared.replyToPost(post: newCreatedPost, key:(self.sentPost?.key)! )
+                SVProgressHUD.dismiss()
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                Network.shared.addPost(post: newCreatedPost)
+                SVProgressHUD.dismiss()
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

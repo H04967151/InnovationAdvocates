@@ -22,7 +22,6 @@ class EventsController: UITableViewController {
         tableView.register(UINib(nibName:"EventsTableViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         Network.shared.retrieveEvents { (returnedEvents) in
             self.events = returnedEvents
-            print(returnedEvents)
             self.tableView.reloadData()
         }
     }
