@@ -48,7 +48,7 @@ class HomeFeedController: UITableViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
         button.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        button.frame = CGRect(x: 0.0, y: 0.0, width: 44.0, height: 44.0)
+        button.frame = CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0)
         button.layer.cornerRadius = 15
         button.layer.masksToBounds = true
         button.sd_setImage(with: user?.photoURL, for: .normal, completed: nil)

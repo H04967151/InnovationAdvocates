@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SVProgressHUD
 
 class ProfileController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -21,6 +22,7 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show(withStatus: "Loading...")
         profileImageView.layer.opacity = 0
         usernameLabel.layer.opacity = 0
         emailLabel.layer.opacity = 0
@@ -36,6 +38,7 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
                 formatter.dateFormat = "MMMM dd - HH:mm"
                 let dateString = formatter.string(from: self.userObject["lastLogIn"] as! Date)
                 self.lastLoginLabel.text = "Last Login - \(dateString)"
+                SVProgressHUD.dismiss()
                 UIView.animate(withDuration: 0.3) {
                     self.profileImageView.layer.opacity = 1
                     self.usernameLabel.layer.opacity = 1

@@ -56,8 +56,10 @@ class Network {
                 if let err = err {
                     print("Error adding document: \(err)")
                 } else {
-    //                let key = ref?.documentID
-    //                self.saveToUserPostList(docID: key!)
+                    self.db.collection("Users").document((Auth.auth().currentUser?.uid)!).collection("replies").addDocument(data: [
+                        "replyID": ref?.documentID as! String,
+                        "postID" : key
+                        ])
                     let UID = UUID()
                     SVProgressHUD.dismiss()
                     if let userUID = Auth.auth().currentUser?.uid {
@@ -140,6 +142,7 @@ class Network {
     func uploadPicture(image: UIImage, view: UIViewController){
         let data = UIImageJPEGRepresentation(image, 0.2)
         let profileImages = ref.child("users/images/\(Date()).jpg")
+        let oldProfileImage = Auth.auth().currentUser?.photoURL?.absoluteString
         let user = Auth.auth().currentUser
         SVProgressHUD.show(withStatus: "Uploading..")
         profileImages.putData(data!, metadata: nil) { (meta, err) in
@@ -151,7 +154,7 @@ class Network {
                     if err == nil {
                         self.db.collection("Users").document((user?.uid)!).updateData(["profileImage" : newProfileURL.absoluteString])
                         self.retrieveUsersPosts(completion: { (posts) in
-                            self.uppdateProfileImageURL(posts: posts, url: newProfileURL.absoluteString)
+                            self.uppdateProfileImageURL(posts: posts, url: newProfileURL.absoluteString, oldProfileImage: oldProfileImage!)
                         })
                         SVProgressHUD.dismiss()
                         let ac = UIAlertController(title: "Woooo Hooo!" , message: "Your new image has been uploaded", preferredStyle: .alert)
@@ -170,6 +173,19 @@ class Network {
         }
     }
     
+    func uppdateProfileImageURL(posts: [[String:Any]], url: String, oldProfileImage: String){
+        for post in posts {
+            let key = post["key"] as! String
+            print(key)
+            db.collection("Posts").document(key).updateData(["profileImage" : url])
+            db.collection("Users").document((Auth.auth().currentUser?.uid)!).collection("replies").getDocuments { (snapshot, err) in
+                for snap in (snapshot?.documents)! {
+                    self.db.collection("Posts").document(snap.data()["postID"] as! String).collection("replies").document(snap.data()["replyID"] as! String).updateData(["profileImage" : url])
+                }
+            }
+        }
+    }
+    
     func retrieveUsersPosts(completion: @escaping([[String:Any]]) -> ()){
         db.collection("Users").document((Auth.auth().currentUser?.uid)!).collection("posts").getDocuments { (snapshot, err) in
             var usersPosts = [[String:Any]]()
@@ -181,14 +197,7 @@ class Network {
             }
         }
     }
-    
-    func uppdateProfileImageURL(posts: [[String:Any]], url: String){
-        for post in posts {
-            let key = post["key"] as! String
-            print(key)
-            db.collection("Posts").document(key).updateData(["profileImage" : url])
-        }
-    }
+
     
     func saveToUserPostList(docID: String){
         var ref: DocumentReference? = nil
