@@ -44,8 +44,6 @@ class HomeFeedImageTableViewCell: UITableViewCell {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMMM dd - H:mm"
             let dateString = formatter.string(from: (post?.date!)!)
-            likedByUseLabel.layer.opacity = 0
-            likleCountLabel.layer.opacity = 0
             replyLabel.layer.opacity = 0
             usernameLabel.text = post?.username
             profileImageView.sd_setImage(with: URL(string: (post?.profileImage!)!), completed: nil)
@@ -72,8 +70,10 @@ class HomeFeedImageTableViewCell: UITableViewCell {
                 let userLikedPost = post?.likedBy![username!]
                 if userLikedPost != nil{
                     likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button"), for: .normal)
+                    likeBtnImage.tintColor = UIColor(named: "Red")
                 }else{
                     likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button-outline"), for: .normal)
+                    likeBtnImage.tintColor = UIColor(named: "Red")
                 }
                 
                 //            if let likedBy = post.likedBy!.first {
@@ -107,7 +107,6 @@ class HomeFeedImageTableViewCell: UITableViewCell {
     }
     
     func styleCell(){
-        postImageView.layer.cornerRadius = 8
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
         likeBtnImage.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8)
         replyBtnImage.imageEdgeInsets = UIEdgeInsetsMake(8, 8, 8, 8)

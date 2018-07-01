@@ -8,7 +8,7 @@ target 'InnovationAdvocates' do
   # Pods for InnovationAdvocates
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
+  pod 'Firebase/Firestore', '4.10.1'
   pod 'Firebase/Storage'
   pod 'SDWebImage', '~> 4.0'
   pod 'SVProgressHUD'

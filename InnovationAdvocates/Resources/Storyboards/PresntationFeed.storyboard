@@ -88,11 +88,14 @@
             </objects>
             <point key="canvasLocation" x="2586" y="1040"/>
         </scene>
-        <!--Presentations-->
+        <!--Navigation Controller-->
         <scene sceneID="wNo-Nq-vLh">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5wD-cx-aFq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Presentations" image="presentation-7" selectedImage="presentation-7" id="eTn-FL-a9J"/>
+                    <tabBarItem key="tabBarItem" title="" image="presentation-7" selectedImage="presentation-7" id="eTn-FL-a9J">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="40"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="Gge-QC-4Nz">

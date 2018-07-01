@@ -21,6 +21,11 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileImageView.layer.opacity = 0
+        usernameLabel.layer.opacity = 0
+        emailLabel.layer.opacity = 0
+        lastLoginLabel.layer.opacity = 0
+        signOutBtn.layer.opacity = 0
         Network.shared.getUserInfo(uid: (Network.currentUser?.uid)!) { (user) in
             if let user = user {
                 self.userObject = user
@@ -31,6 +36,13 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
                 formatter.dateFormat = "MMMM dd - HH:mm"
                 let dateString = formatter.string(from: self.userObject["lastLogIn"] as! Date)
                 self.lastLoginLabel.text = "Last Login - \(dateString)"
+                UIView.animate(withDuration: 0.3) {
+                    self.profileImageView.layer.opacity = 1
+                    self.usernameLabel.layer.opacity = 1
+                    self.emailLabel.layer.opacity = 1
+                    self.lastLoginLabel.layer.opacity = 1
+                    self.signOutBtn.layer.opacity = 1
+                }
             }else{
                 print("No User")
             }
@@ -39,6 +51,7 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         runStyles()
     }
     

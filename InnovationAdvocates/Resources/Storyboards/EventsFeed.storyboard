@@ -150,11 +150,14 @@
             </objects>
             <point key="canvasLocation" x="2604" y="1773.3990147783252"/>
         </scene>
-        <!--Events-->
+        <!--Navigation Controller-->
         <scene sceneID="Pst-9T-cev">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pti-jK-dOC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" image="calendar-7" selectedImage="calendar-7" id="GAI-Wc-TQL"/>
+                    <tabBarItem key="tabBarItem" title="" image="calendar-7" selectedImage="calendar-7" id="GAI-Wc-TQL">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="40"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="kRc-QC-MZg">

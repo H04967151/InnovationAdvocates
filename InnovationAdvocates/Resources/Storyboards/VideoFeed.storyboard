@@ -42,7 +42,10 @@
         <scene sceneID="gfS-wD-MHL">
             <objects>
                 <navigationController title="Videos" automaticallyAdjustsScrollViewInsets="NO" id="kNB-PS-e0m" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Videos" image="video-player-7" selectedImage="video-player-7" id="bQT-MV-b9u"/>
+                    <tabBarItem key="tabBarItem" title="Videos" image="video-player-7" selectedImage="video-player-7" id="bQT-MV-b9u">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="50"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="yBL-x6-tuU">

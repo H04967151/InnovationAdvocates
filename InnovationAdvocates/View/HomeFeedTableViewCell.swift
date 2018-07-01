@@ -37,9 +37,6 @@ class HomeFeedTableViewCell: UITableViewCell {
             formatter.dateFormat = "MMMM dd - H:mm"
             let dateString = formatter.string(from: (post?.date!)!)
             
-            likedByLabel.layer.opacity = 0
-            likeCountLabel.layer.opacity = 0
-            replyLabel.layer.opacity = 0
             usernameLabel.text = post?.username
             profileImage.sd_setImage(with: URL(string: (post?.profileImage!)!), completed: nil)
             dateLabel.text = dateString
@@ -65,8 +62,10 @@ class HomeFeedTableViewCell: UITableViewCell {
                 let userLikedPost = postLikedBy[username!]
                 if userLikedPost != nil{
                     likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button"), for: .normal)
+                    likeBtnImage.tintColor = UIColor(named: "Red")
                 }else{
                     likeBtnImage.setImage(#imageLiteral(resourceName: "favorite-heart-button-outline"), for: .normal)
+                    likeBtnImage.tintColor = UIColor(named: "Red")
                 }
                 
                 //            if let likedBy = post.likedBy!.first {

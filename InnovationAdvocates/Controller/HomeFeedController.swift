@@ -39,10 +39,10 @@ class HomeFeedController: UITableViewController {
     }
     
     func runStyles(){
-        title = "Home"
         tabBarController?.tabBar.barTintColor = UIColor(named: "Blue")
         tabBarController?.tabBar.unselectedItemTintColor = UIColor(displayP3Red: 255, green: 255, blue: 255, alpha: 0.5)
         navigationController?.navigationBar.barTintColor = UIColor(named: "Blue")
+        
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false

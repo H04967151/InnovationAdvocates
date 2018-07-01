@@ -185,6 +185,7 @@ class Network {
     func uppdateProfileImageURL(posts: [[String:Any]], url: String){
         for post in posts {
             let key = post["key"] as! String
+            print(key)
             db.collection("Posts").document(key).updateData(["profileImage" : url])
         }
     }

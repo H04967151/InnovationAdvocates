@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--Home Feed Controller-->
         <scene sceneID="vPZ-M9-buI">
             <objects>
                 <tableViewController id="xAc-Fq-Zun" customClass="HomeFeedController" customModule="InnovationAdvocates" customModuleProvider="target" sceneMemberID="viewController">
@@ -43,7 +43,7 @@
                             <outlet property="delegate" destination="xAc-Fq-Zun" id="8Kq-4L-amp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="never" id="Wq8-B8-9CD">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Wq8-B8-9CD">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mOB-Sg-EDH"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nVi-K2-akN">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -275,7 +275,10 @@
         <scene sceneID="TJO-Vp-mxG">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-afa-iF-K8W" title="Home Feed" automaticallyAdjustsScrollViewInsets="NO" id="26I-Yh-z57" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="newspaper-7" selectedImage="newspaper-7" id="Jad-TL-XsD"/>
+                    <tabBarItem key="tabBarItem" title="" image="newspaper-7" selectedImage="newspaper-7" id="Jad-TL-XsD">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="40"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="8rV-B3-0Jg">

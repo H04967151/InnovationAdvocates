@@ -18,68 +18,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="549.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gqb-Cc-sAD">
-                                <rect key="frame" x="112" y="32" width="150" height="150"/>
-                                <color key="backgroundColor" name="Grey"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ecp-ER-tfA">
+                                <rect key="frame" x="56" y="106" width="263" height="337"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gqb-Cc-sAD">
+                                        <rect key="frame" x="56.5" y="0.0" width="150" height="150"/>
+                                        <color key="backgroundColor" name="Grey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="LNe-RE-l4i"/>
+                                            <constraint firstAttribute="width" constant="150" id="rUZ-qP-lqi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wAl-pU-Y9a">
+                                        <rect key="frame" x="0.0" y="166" width="263" height="105"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname Lastname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPm-rN-P9W">
+                                                <rect key="frame" x="0.0" y="0.0" width="263" height="35"/>
+                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mq-h1-NvU">
+                                                <rect key="frame" x="108" y="35" width="47" height="35"/>
+                                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWK-4M-RHg">
+                                                <rect key="frame" x="109" y="70" width="45" height="35"/>
+                                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fq-cC-2k5">
+                                        <rect key="frame" x="8" y="287" width="247" height="50"/>
+                                        <color key="backgroundColor" name="Grey"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="BeO-cQ-158"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <state key="normal" title="Sign Out">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signOut:" destination="VH3-Ew-QSs" eventType="touchUpInside" id="yWr-js-c1o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="WaN-Bq-duG"/>
-                                    <constraint firstAttribute="width" constant="150" id="guW-wb-WQ7"/>
+                                    <constraint firstAttribute="trailing" secondItem="1fq-cC-2k5" secondAttribute="trailing" constant="8" id="HKT-D8-J7s"/>
+                                    <constraint firstItem="1fq-cC-2k5" firstAttribute="leading" secondItem="ecp-ER-tfA" secondAttribute="leading" constant="8" id="P1E-FK-TON"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname Lastname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPm-rN-P9W">
-                                <rect key="frame" x="0.0" y="204" width="375" height="35"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mq-h1-NvU">
-                                <rect key="frame" x="164.5" y="247" width="47" height="23.5"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="20"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fq-cC-2k5">
-                                <rect key="frame" x="112" y="418.5" width="150" height="50"/>
-                                <color key="backgroundColor" name="Grey"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PYE-OS-njc"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="y1x-gK-xQi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
-                                <state key="normal" title="Sign Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signOut:" destination="VH3-Ew-QSs" eventType="touchUpInside" id="yWr-js-c1o"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWK-4M-RHg">
-                                <rect key="frame" x="165.5" y="286.5" width="45" height="14"/>
-                                <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1fq-cC-2k5" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dcW-6z-GnG" secondAttribute="leading" constant="137" id="1cN-Gv-QxR"/>
-                            <constraint firstItem="DPm-rN-P9W" firstAttribute="trailing" secondItem="dcW-6z-GnG" secondAttribute="trailing" id="4Pr-Wq-lVY"/>
-                            <constraint firstItem="gqb-Cc-sAD" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="5Ai-K9-xjl"/>
-                            <constraint firstItem="DPm-rN-P9W" firstAttribute="leading" secondItem="dcW-6z-GnG" secondAttribute="leading" id="B7g-bj-WQt"/>
-                            <constraint firstItem="gqb-Cc-sAD" firstAttribute="top" secondItem="dcW-6z-GnG" secondAttribute="top" constant="32" id="DfX-dr-Y7P"/>
-                            <constraint firstItem="DPm-rN-P9W" firstAttribute="top" secondItem="gqb-Cc-sAD" secondAttribute="bottom" constant="22" id="LqF-WB-zCn"/>
-                            <constraint firstItem="1fq-cC-2k5" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="PMs-fd-aun"/>
-                            <constraint firstItem="oWK-4M-RHg" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="QtB-nP-4ra"/>
-                            <constraint firstItem="dcW-6z-GnG" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="1fq-cC-2k5" secondAttribute="trailing" constant="138" id="RhW-Ox-eUg"/>
-                            <constraint firstItem="oWK-4M-RHg" firstAttribute="top" secondItem="3Mq-h1-NvU" secondAttribute="bottom" constant="16" id="d3u-J4-anI"/>
-                            <constraint firstItem="3Mq-h1-NvU" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="erK-s9-6rY"/>
-                            <constraint firstItem="3Mq-h1-NvU" firstAttribute="top" secondItem="DPm-rN-P9W" secondAttribute="bottom" constant="8" id="j6v-lY-w4m"/>
-                            <constraint firstItem="dcW-6z-GnG" firstAttribute="bottom" secondItem="1fq-cC-2k5" secondAttribute="bottom" constant="32" id="xVK-rK-uqE"/>
+                            <constraint firstItem="ecp-ER-tfA" firstAttribute="centerY" secondItem="Hfj-RH-VDQ" secondAttribute="centerY" id="HFn-ur-dn9"/>
+                            <constraint firstItem="ecp-ER-tfA" firstAttribute="centerX" secondItem="Hfj-RH-VDQ" secondAttribute="centerX" id="ks4-g4-zue"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dcW-6z-GnG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="8IW-YD-xV0">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gQv-ev-AhD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="gQv-ev-AhD">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="changeProfileImage:" destination="VH3-Ew-QSs" id="y1W-HO-g0Q"/>
@@ -98,11 +100,14 @@
             </objects>
             <point key="canvasLocation" x="1757.5999999999999" y="2485.7142857142858"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="gcq-nx-EtN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D5W-wt-ckS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="origami-7" selectedImage="origami-7" id="p3v-LD-d4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="origami-7" selectedImage="origami-7" id="p3v-LD-d4n">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="40"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="5Ss-Mm-h4w">
