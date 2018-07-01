@@ -67,18 +67,25 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
     }
     @IBAction func changeProfileImage(_ sender: UIBarButtonItem) {
         let vc = UIImagePickerController()
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            vc.sourceType = .camera
-            vc.allowsEditing = true
-            vc.delegate = self
-            present(vc, animated: true)
-        }else if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
-            vc.sourceType = .photoLibrary
-            vc.allowsEditing = true
-            vc.delegate = self
-            present(vc, animated: true)
-        }
-        
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                vc.sourceType = .camera
+                vc.allowsEditing = true
+                vc.delegate = self
+                self.present(vc, animated: true)
+            }
+        }))
+        alertController.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: { (UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                vc.sourceType = .photoLibrary
+                vc.allowsEditing = true
+                vc.delegate = self
+                self.present(vc, animated: true)
+            }
+        }))
+
+        present(alertController, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -87,7 +94,10 @@ class ProfileController: UIViewController, UINavigationControllerDelegate, UIIma
         picker.dismiss(animated: true) {
             Network.shared.uploadPicture(image: image, view: self)
         }
-        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func signOut(_ sender: UIButton) {

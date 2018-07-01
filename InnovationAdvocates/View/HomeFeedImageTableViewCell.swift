@@ -44,7 +44,6 @@ class HomeFeedImageTableViewCell: UITableViewCell {
             let formatter = DateFormatter()
             formatter.dateFormat = "MMMM dd - H:mm"
             let dateString = formatter.string(from: (post?.date!)!)
-            replyLabel.layer.opacity = 0
             usernameLabel.text = post?.username
             profileImageView.sd_setImage(with: URL(string: (post?.profileImage!)!), completed: nil)
             dateLabel.text = dateString
