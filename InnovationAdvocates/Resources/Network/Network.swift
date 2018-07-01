@@ -155,7 +155,7 @@ class Network {
                         })
                         SVProgressHUD.dismiss()
                         let ac = UIAlertController(title: "Woooo Hooo!" , message: "Your new image has been uploaded", preferredStyle: .alert)
-                        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { (nil) in
+                        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { (nil) in 
                             
                         }))
                         view.present(ac, animated: true)
